@@ -29,8 +29,9 @@
         </div>
     </div>
 </nav>
-<div class="card" style="width: 80%; margin-left: 10%; margin-top: 5%; max-height: 100%">
-    <img class="img-fluid" src="{% static 'pics/calc.jpg' %}" style="align-self: center; max-height: 10%; max-width: 10%">
+<div class="card" style="width: 80%; margin-left: 10%; margin-top: 8%; max-height: 100%">
+    <img class="img-fluid" src="{% static 'pics/calc.jpg' %}"
+         style="align-self: center; max-height: 10%; max-width: 10%">
     <div class="card-body">
         <form method="GET" action="{% url 'get_equation' %}">
             <div class="mb-3">
@@ -43,7 +44,22 @@
     </div>
 </div>
 <br>
-<div class="card" style="width: 30%; margin-left: 10%; max-height: 50%; margin-bottom: 150px">
+<div class="card-body" style="width: 80%; margin-left: 10%">
+        <p class="display-7" id="instructions">
+            Answer
+        </p>
+        {% if flag %}
+            <div class="alert alert-danger" role="alert">
+              <strong>{{ error }}</strong>
+            </div>
+        {% else %}
+            <div class="alert alert-light" role="alert">
+              <strong>{{ answer }}</strong>
+            </div>
+        {% endif %}
+    </div>
+<br>
+<div class="card" style="width: 30%; margin-left: 10%; max-height: 50%; margin-bottom: 200px">
     <div class="card-body">
         <div class="mb-3">
             <p class="display-7" id="instructions">
@@ -53,16 +69,16 @@
                 <li class="list-group-item">Use + for Addition</li>
                 <li class="list-group-item">Use - for Subtraction</li>
                 <li class="list-group-item">Use * for Multiplication</li>
-                <li class="list-group-item">Use / for Division </li>
+                <li class="list-group-item">Use / for Division</li>
                 <li class="list-group-item">Use ** for Power</li>
                 <li class="list-group-item">Use | | for Absolute value</li>
                 <li class="list-group-item">Use () for parentheses</li>
+                <li class="list-group-item">Use % for modulus</li>
             </ul>
         </div>
     </div>
 
 </div>
-
 
 
 <div class="navbar navbar-fixed-bottom">
